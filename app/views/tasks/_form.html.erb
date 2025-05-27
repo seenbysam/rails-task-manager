@@ -1,0 +1,13 @@
+<%= form_with model: @task do |t| %>
+  <div class="my-3">
+    <strong><%= t.label :title, class: "mb-2" %></strong>
+    <%= t.text_field :title, class: "form-control" %>
+    <strong><%= t.label :details , class: "mb-2" %></strong>
+    <%= t.text_area  :details, class: "form-control" %>
+    <% unless @task.new_record? %>
+      <%= t.label :completed %>
+      <%= t.checkbox :completed %>
+    <% end %>
+  </div>
+  <%= t.submit class: "btn btn-light border button" %>
+<% end %>

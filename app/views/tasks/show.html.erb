@@ -1,0 +1,39 @@
+<div class="row m-3">
+  <div class="col-6">
+    <div class="d-flex justify-content-between flex-btn">
+      <h1><%= @task.title %></h1>
+        <%= link_to edit_task_path(@task), class: "btn btn-light border text-dark" do %>
+        <div class="d-flex task button">
+          <i class="fa-solid fa-pen"></i>
+          <p>Edit this task</p>
+        </div>
+        <% end %>
+    </div>
+    <div class="alert alert-light border" role="alert">
+      <p><%= @task.details %></p>
+    </div>
+    <% if @task.completed == true %>
+      <div class="d-flex task">
+        <i class="fa-regular fa-square-check"></i>
+        <p>This task is completed</p>
+        </div>
+    <% else %>
+      <div class="d-flex task">
+        <i class="fa-regular fa-square"></i>
+        <p>This task is not completed yet</p>
+      </div>
+    <% end %>
+    <hr>
+  </div>
+</div>
+<div class="row m-3">
+<div class="col-6">
+
+  <%= link_to tasks_path, class: "btn btn-light border text-dark" do %>
+  <div class="d-flex task button">
+    <i class="fa-solid fa-clock-rotate-left"></i>
+    <p>Back to all tasks</p>
+  </div>
+  <% end %>
+</div>
+</div>

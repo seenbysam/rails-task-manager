@@ -1,0 +1,35 @@
+<div class="row m-3">
+  <div class="col-6">
+    <h1>My Tasks</h1>
+    <ul>
+      <% @tasks.each do |task| %>
+        <div class="d-flex task">
+          <li>
+            <% if task.completed == true %>
+              <div class="d-flex task">
+                <i class="fa-regular fa-square-check"></i>
+                <label for="task"><%= link_to task.title, task_path(task) %></label>
+                </div>
+            <% else %>
+              <div class="d-flex task">
+                <i class="fa-regular fa-square"></i>
+                <label for="task"><%= link_to task.title, task_path(task) %></label>
+              </div>
+            <% end %>
+          </li>
+          <%= link_to task_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa-solid fa-trash"></i>
+            <% end %>
+        </div>
+      <% end %>
+    </ul>
+    <hr class="mt-3">
+      <%= link_to new_task_path, class: "btn btn-light border mt-3 text-dark" do %>
+      <div class="d-flex task button">
+        <i class="fa-solid fa-plus"></i>
+        <p>Add a new task</p>
+      </div>
+      <% end %>
+
+  </div>
+</div>
